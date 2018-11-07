@@ -1,2 +1,2 @@
-# app-mandrill
-E-Com Plus app to integrate [Mandrill](https://mandrill.com/) for transactional emails
+# app-mailjet
+E-Com Plus app to integrate [Mailjet](https://www.mailjet.com/) for transactional emails
