@@ -1,3 +1,6 @@
+# app
+_stderr
+/lib/db/*
 # Logs
 logs
 *.log
