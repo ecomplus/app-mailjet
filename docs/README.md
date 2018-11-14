@@ -1,6 +1,40 @@
 # Transactional e-mails structure
 
-This document is intended to list predefined Contact Properties names's when building custom transactional e-mails sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in a store's Order, Cart or Customer. In the following table you can see the customizable e-mails.
+## Summary
+
+1. [Introduction](#introduction)
+
+2. [List of transactional emails](#List_of_transactional_emails)
+
+3. [Examples](#examples)
+
+ * [Order confirmation](#order_confirmation)
+ 
+ * [Payment confirmation](#payment_confirmation)
+ 
+ * [Shipping confirmation](#shipping_confirmation)
+ 
+ * [Delivery confirmation](#delivery_confirmation)
+ 
+ * [Order invoice](#order_invoice)
+ 
+ * [Cancellation confirmation](#cancellation_confirmation)
+ 
+ * [Refund confirmation](#refund_confirmation)
+ 
+ * [New user](#new_user)
+ 
+ * [Abandoned cart](#abandoned_cart)
+
+# Introduction
+
+This document is intended to list predefined variables when building custom transactional e-mails sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in a store's order, cart or customer. 
+
+In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">customer</a>data structure.
+
+# List of transactional emails
+
+In the following table you can see the customizable e-mails.
 
 |	E-mail	| Description	|	Link to	example	|
 | :---:       | :---: | :---: |
@@ -14,16 +48,13 @@ This document is intended to list predefined Contact Properties names's when bui
 |	New user	|	Notify users about their registration	| <a href="#new_user">Example</a>	|	
 |	Abandoned cart	|	Notify customer one day after his cart is abandoned 	| <a href="#abandoned_cart">Example</a>	|	
 
+Links to visualyze our resource's full data structure.
 
-In these transactional e-mails you can use custom info about the order, cart or customer you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a>, with the same property name that this info is given in our data structure. 
 
-Links to visualyze our resource's full data structure
 
-<a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">Order data structure </a>
-<a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">Cart data structure</a>
-<a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">Customer data structure</a>
+## Examples of emails template
 
-<h2 id="payment_confirmation" > Payment confirmation </h2>
+<h3 id="payment_confirmation" > Payment confirmation </h3>
 
 In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -49,7 +80,7 @@ In the following code you can see the example of an e-mail sent right after the 
 </html>
 
 ```
-<h2 id="order_confirmation">Order confirmation</h2>
+<h3 id="order_confirmation">Order confirmation</h3>
 
 In the following code you can see the example of an e-mail sent right after the buyer's finished the order in checkout. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -76,7 +107,7 @@ In the following code you can see the example of an e-mail sent right after the 
 
 ```
 
-<h2 id="shipping_confirmation" > Shipping confirmation </h2>
+<h3 id="shipping_confirmation" > Shipping confirmation </h3>
 
 In the following code you can see the example of an e-mail sent when the shipping company starts the delivery process. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -103,7 +134,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 
 ```
 
-<h2 id="delivery_confirmation" > Delivery confirmation </h2>
+<h3 id="delivery_confirmation" > Delivery confirmation </h3>
 
 In the following code you can see the example of an e-mail sent when the shipping company notify that the packege was delivered. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -130,7 +161,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 
 ```
 
-<h2 id="order_invoice" > Order invoice </h2>
+<h3 id="order_invoice" > Order invoice </h3>
 
 In the following code you can see the example of an e-mail sent when a invoice is generated for the buying transaction. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -157,7 +188,7 @@ In the following code you can see the example of an e-mail sent when a invoice i
 
 ```
 
-<h2 id="cancellation_confirmation">  Cancellation confirmation </h2>
+<h3 id="cancellation_confirmation">  Cancellation confirmation </h3>
 
 In the following code you can see the example of an e-mail sent when the buyer's payment was not aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -184,7 +215,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 
 ```
 
-<h2 id="Refund_confirmation" > Refund confirmation </h2>
+<h3 id="Refund_confirmation" > Refund confirmation </h3>
 
 In the following code you can see the example of an e-mail sent when the buyer's payment amount is refunded. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
@@ -211,7 +242,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 
 ```
 
-<h2 id="new_user" > New user </h2>
+<h3 id="new_user" > New user </h3>
 
 In the following code you can see the example of an e-mail sent to new useers when loggin in the first time in the store. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers"> Customer data structure</a>.
  
@@ -226,7 +257,7 @@ In the following code you can see the example of an e-mail sent to new useers wh
 
 ```
 
-<h2 id="abandoned_cart"> Abandoned cart </h2>
+<h3 id="abandoned_cart"> Abandoned cart </h3>
 
 In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts"> Order data structure</a>.
  
