@@ -26,6 +26,8 @@
 
   * [Abandoned cart](#abandoned_cart)
 
+{% raw %}
+
 # Introduction
 
 This document is intended to list predefined variables when building custom transactional e-mails to be sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in a store's order, cart or customer. 
@@ -62,12 +64,12 @@ In the following code you can see the example of an e-mail sent right after the 
   <body>     
     <h1>Hello {{var:name}}! We just recived your order #{{var:number}}</h1>
     <p>
-     Now we're witing for the payment to be confirmed so we can send you this goodies: 
+     Now we're waiting for the payment to be confirmed so we can send you this goodies: 
     </p>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Product: {{ item.name }} x {{items.quantity}} Price: {{ item.final_price }}
         </li>
       {% endfor %}
     </ul>
@@ -91,7 +93,7 @@ In the following code you can see the example of an e-mail sent right after the 
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }}x {{items.quantity}}       Price: {{ item.final_price }}
+          Product: {{ item.name }} x {{items.quantity}} Price: {{ item.final_price }}
         </li>
       {% endfor %}
     </ul>
@@ -172,7 +174,7 @@ In the following code you can see the example of an e-mail sent when a invoice i
 
 <html>
   <body>     
-    <h1>Hello, here is the invoice generated for order {{var:number}}</h1>
+    <h1>Hello {{ var:name }}, here is the invoice generated for order {{var:number}}</h1>
     <li>
       {% for shipping_lines in var:shipping_lines %}
         {% for invoices in shipping_lines %}
@@ -203,7 +205,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{ var:name }}, your payment for order {{var:number}} was aproved</h1>
     <p>
       You just bought the the following items:
     </p>
@@ -230,19 +232,11 @@ In the following code you can see the example of an e-mail sent when the buyer's
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{ var:name }},</h1>
     <p>
-      You just bought the the following items:
-    </p>
-    <ul>
-      {% for item in var:items %}
-        <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
-        </li>
-      {% endfor %}
-    </ul>
-    <p>
-      Now you just got to wait the delivery!
+       We refunded the payment relative to order {{var:number}}
+    <br>
+      We hope you had a great experience and come back visiting our store soon!
     </p>
   </body>
 </html>
@@ -257,12 +251,10 @@ In the following code you can see the example of an e-mail sent to new useers wh
 
 <html>
   <body>     
-    <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
-    {% for item in var:items %}
-        <li>
-          Product: {{ item.name }}
-        </li>
-      {% endfor %}
+    <h1>Hello {{var:name}}, it's a plesure to see you here!</h1>
+    
+    Your registration was successful, enjoy our offers!!
+   
   </body>
 </html>
 
@@ -287,10 +279,8 @@ In the following code you can see the example of an e-mail sent right after the 
         </li>
       {% endfor %}
     </ul>
-    <p>
-      Now you just got to wait the delivery!
-    </p>
   </body>
 </html>
 
 ```
+{% endraw %}
