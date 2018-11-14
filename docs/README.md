@@ -1,8 +1,8 @@
-#Transaction e-mails structure
+# Transactional e-mails structure
 
 This document is intended to list predefined Contact Properties names's when building custom transactional e-mails sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in one of our resouces. Here, you can see wich of our Store API resourses can trigger the e-mail.
 
-In  the following table you can see the customizable e-mails and whitch resource triggers it :
+In  the following table you can see the customizable e-mails and the documentation of the object sent to  :
 
 |	E-mail	|	Trigger source	|	Description	|
 | :---:       | :---: | :---: |
@@ -19,22 +19,26 @@ In  the following table you can see the customizable e-mails and whitch resource
 
 In these transactional e-mails you can use custom info about the Order, Cart or Customer you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet e-mail template</a> with the same property name that this info is given in the triggering resource. 
 
-In the following code you can see an example of an **Payment confirmation** e-mail:
+## Payment confirmation
+
+In the following code you can see an example of an  e-mail:
 
 ```html
-<html>
-  <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
-    <p>
-      You purchased the following items:
-    </p>
-    <ul>
+
+&lt;html&gt;
+  &lt;body&gt;     
+    &lt;h1&gt;Hello, your payment for order {{var:number}} was aproved&lt;/h1&gt;
+    &lt;p&gt;
+      Thank you for buying hte  the following items:
+    &lt;/p&gt;
+    &lt;ul&gt;
       {% for item in var:items %}
-        <li>
+        &lt;li&gt;
           Product: {{ item.name }} Price: {{ item.final_price }}
-        </li>
+        &lt;/li&gt;
       {% endfor %}
-    </ul>
-  </body>
-</html>
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
 ```
