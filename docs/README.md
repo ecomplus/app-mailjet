@@ -158,7 +158,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 
 <h3 id="delivery_confirmation" > Delivery confirmation </h3>
 
-In the following code you can see the example of an e-mail sent when the shipping company notify that the packege was delivered. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
+In the following code you can see the example of an e-mail sent when the shipping company notify that the package was delivered. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
 <html>
