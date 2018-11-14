@@ -276,11 +276,11 @@ In the following code you can see the example of an e-mail sent to new users whe
 ```html
 <html>
   <body>     
-    <h1>Hello {{var:name}}, it's a plesure to see you here.</h1>
+    <h1>Hello {{var:name}}, it's a pleasure to see you here.</h1>
       {% if data:discount.value:"N/A" %}
-        <p>You're a special customer, and have a discount of ${{  discount.value  }} in every purchase!</p>
-        {% else %}
         <p>Your registration was successful, enjoy our offers!!</p>
+        {% else %}
+        <p>You're a special customer, and have a discount of ${{  discount.value  }} in every purchase!</p>
       {% endif %}    
   </body>
 </html>
@@ -288,14 +288,14 @@ In the following code you can see the example of an e-mail sent to new users whe
 
 <h3 id="abandoned_cart"> Abandoned cart </h3>
 
-In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts"> Order data structure</a>.
+In the following code you can see the example of an e-mail sent when the customer leaves a cart whithout finishing the order. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts"> Cart data structure</a>.
  
 ```html
 <html>
   <body>     
     <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
     <p>
-      Buy this items today and get 30% discount with the cupom #supersale. Take a closer look in the items that you are missing:
+      Buy this items today and get 30% discount with the cupom #SUPERSALE. Take a closer look in the items that you are missing:
     </p>
     <h3> Cart details:</h3>
     <ul>
