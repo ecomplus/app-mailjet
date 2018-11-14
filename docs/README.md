@@ -71,7 +71,7 @@ In the following code you can see the example of an e-mail sent right after the 
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
@@ -101,7 +101,7 @@ In the following code you can see the example of an e-mail sent right after the 
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
@@ -141,7 +141,7 @@ In the following code you can see the example of an e-mail sent when the shippin
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
@@ -173,7 +173,7 @@ In the following code you can see the example of an e-mail sent when the shippin
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
@@ -207,7 +207,7 @@ In the following code you can see the example of an e-mail sent when a invoice i
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
@@ -237,7 +237,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
@@ -301,7 +301,7 @@ In the following code you can see the example of an e-mail sent when the custome
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Product: <img src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
        Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
