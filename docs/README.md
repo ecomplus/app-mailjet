@@ -62,15 +62,17 @@ In the following code you can see the example of an e-mail sent right after the 
 <html>
   <body>
     <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  status_link  }}">#{{  var:number  }}</a></h1>
-    <p>
-     Now we're waiting for the payment to be confirmed so we can send your products.   
+    {% for shipping_lines in var:items %}
+      <p> Your package will be delivered in {{ shipping_lines.delivery_time.working_days  }} working days </p>
+    {% endfor %}
      
     </p>
     <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{items.quantity}} Price: {{ items.final_price }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
     </ul>
@@ -91,21 +93,25 @@ In the following code you can see the example of an e-mail sent right after the 
 ```html
 <html>
   <body>     
-    <h1>Hello {{var:name}}! your payment for order #{{  var:number  }} was aproved</h1>
-    <p>
-      You just bought the the following amazing items:
-    </p>
+    <h1>Hello {{var:name}}! your payment for order <a href="{{  status_link  }}">#{{  var:number  }}</a> was aproved</h1>
+    {% for shipping_lines in var:items %}
+      <p> We'll post your package for shipping in {{ shipping_lines.posting_deadline.days  }} days </p>
+    {% endfor %}
+    <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
     </ul>
     <p>
-      Now you just wait the delivery!
+        Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+        Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+        Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+        Total:  {{  currency_symbol  }} {{  amount.total  }}
     </p>
-  </body>
 </html>
 ```
 
@@ -116,16 +122,36 @@ In the following code you can see the example of an e-mail sent when the shippin
 ```html
 <html>
   <body>     
-    <h1>Hello {{ var:name }}! The products of order #{{ var:number }} are on the way!</h1>
-    <ul>
-      {% for shipping_lines in var:items %}
+    <h1>Hello {{ var:name }}! The products of order <a href="{{  status_link  }}">#{{  var:number  }}</a> are on the way!</h1>
+    <p>
+      {% for shipping_lines in var:shipping_lines %}
         {% if data:shipping_lines.scheduled_delivery:"N/A" %}
-          <p> You packege will be delivered at {{ shipping_lines.scheduled_delivery }}
+          <p> Your package will be delivered at {{ shipping_lines.scheduled_delivery }}</p>
         {% else %}
-          <p> Your packege will be deliverede in {{ shipping_lines.delivery_time.days  }</p>
+          <p> Your package will be deliverede in {{ shipping_lines.delivery_time.days  }}</p>
         {% endif %}
       {% endfor %}
+      {% for shipping_lines in var:shipping_lines %}
+        {% for tracking_codes in var:tracking_codes %}
+        <a href="{{shipping_lines.tracking_codes.link}}"> Track your package in this link</a>
+        {% endfor %}
+      {% endfor %}  
+    </p>
+    <h3> Order details:</h3>
+    <ul>
+      {% for item in var:items %}
+        <li>
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
+        </li>
+      {% endfor %}
     </ul>
+    <p>
+        Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+        Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+        Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+        Total:  {{  currency_symbol  }} {{  amount.total  }}
+    </p>  
   </body>
 </html>
 ```
@@ -137,20 +163,27 @@ In the following code you can see the example of an e-mail sent when the shippin
 ```html
 <html>
   <body>     
-    <h1>Hello {{ var:name }}, your package from order #{{ var:number }} was delivered!</h1>
+    <h1>Hello {{ var:name }}, your package from order <a href="{{  status_link  }}">#{{  var:number  }}</a> was delivered!</h1>
     <p>
       Now just enjoy your purchases. =)
       And do not forget, whenever you need us, we'll be here.
       <br>
-      Order details:
     </p>
+    <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
     </ul>
+    <p>
+        Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+        Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+        Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+        Total:  {{  currency_symbol  }} {{  amount.total  }}
+    </p>  
   </body>
 </html>
 ```
@@ -162,7 +195,7 @@ In the following code you can see the example of an e-mail sent when a invoice i
 ```html
 <html>
   <body>     
-    <h1>Hello {{ var:name }}, here is the invoice generated for order {{var:number}}</h1>
+    <h1>Hello {{ var:name }}, here is the invoice generated for order <a href="{{  status_link  }}">#{{  var:number  }}</a></h1>
     <li>
       {% for shipping_lines in var:shipping_lines %}
         {% for invoices in shipping_lines %}
@@ -170,16 +203,21 @@ In the following code you can see the example of an e-mail sent when a invoice i
         {% endfor %}
       {% endfor %}
     </li>
+    <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
     </ul>
     <p>
-      Now you just got to wait the delivery!
-    </p>
+      Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+      Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+      Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+      Total:  {{  currency_symbol  }} {{  amount.total  }}
+    </p>  
   </body>
 </html>
 ```
@@ -191,20 +229,25 @@ In the following code you can see the example of an e-mail sent when the buyer's
 ```html
 <html>
   <body>     
-    <h1>Hello {{ var:name }}, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{  var:name  }}, your payment for order <a href="{{  status_link  }}">#{{  var:number  }}</a> was cancelled :( </h1>
     <p>
-      You just bought the the following items:
+      But do not worry, you still can buy these amazing items. Here is a <a href="{{  checkout_link  }}">link</a> to our checkout, if you want to try buying this again.  
     </p>
+    <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
     </ul>
     <p>
-      Now you just got to wait the delivery!
-    </p>
+      Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+      Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+      Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+      Total:  {{  currency_symbol  }} {{  amount.total  }}
+    </p>  
   </body>
 </html>
 ```
@@ -218,7 +261,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
   <body>     
     <h1>Hello {{ var:name }},</h1>
     <p>
-       We refunded the payment relative to order {{var:number}}
+       We refunded the payment relative to order <a href="{{  status_link  }}">#{{  var:number  }}</a>
     <br>
       We hope you had a great experience and come back visiting our store soon!
     </p>
@@ -233,10 +276,12 @@ In the following code you can see the example of an e-mail sent to new useers wh
 ```html
 <html>
   <body>     
-    <h1>Hello {{var:name}}, it's a plesure to see you here!</h1>
-    
-    <p>Your registration was successful, enjoy our offers!!</p>
-    
+    <h1>Hello {{var:name}}, it's a plesure to see you here.</h1>
+      {% if data:discount.value:"N/A" %}
+        <p>You're a special customer, and have a discount of ${{  discount.value  }} in every purchase!</p>
+        {% else %}
+        <p>Your registration was successful, enjoy our offers!!</p>
+      {% endif %}    
   </body>
 </html>
 ```
@@ -250,15 +295,23 @@ In the following code you can see the example of an e-mail sent right after the 
   <body>     
     <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
     <p>
-      Take a closer look in the items that you are missing:
+      Buy this items today and get 30% discount with the cupom #supersale. Take a closer look in the items that you are missing:
     </p>
+    <h3> Cart details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{  items.quantity  }} 
+       Price: {{ items.final_price }} Total: {{  items.final_price*items.quantity  }}
         </li>
       {% endfor %}
     </ul>
+    <p>
+      Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+      Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+      Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+      Total:  {{  currency_symbol  }} {{  amount.total  }}
+    </p>  
   </body>
 </html>
 ```
