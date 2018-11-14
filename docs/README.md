@@ -61,12 +61,10 @@ In the following code you can see the example of an e-mail sent right after the 
 ```html
 <html>
   <body>
-    <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  status_link  }}">#{{  var:number  }}</a></h1>
+    <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  var:status_link  }}">#{{  var:number  }}</a></h1>
     {% for shipping_lines in var:items %}
       <p> Your package will be delivered in {{ shipping_lines.delivery_time.working_days  }} working days </p>
     {% endfor %}
-     
-    </p>
     <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
