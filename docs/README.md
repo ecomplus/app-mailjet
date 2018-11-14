@@ -23,7 +23,7 @@ Links to visualyze our resource's full data structure
 <a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">Cart data structure</a>
 <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">Customer data structure</a>
 
-<h2 id="payment_confirmation" Payment confirmation>
+<h2 id="payment_confirmation" > Payment confirmation </h2>
 
 In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
