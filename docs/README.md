@@ -37,14 +37,14 @@ In these transactional e-mails you can use custom info about the resource you ar
 In the following table you can see the customizable e-mails.
 
 |	E-mail	| Description	|	Link to	example	|
-| :---:       | :---: | :---: |
+| :---:  | :---: | :---: |
 |	Order confirmation	|	Send a receipt to customers when they buy something from your store.	| <a href="#order_confirmation">Example</a> 	|	
-|	Payment confirmation	| Notify customars that their payment was confirmed	|	<a href="#payment_confirmation">Example</a>	|	
-|	Shipping confirmation	|	Notify customers that their order is on the way.| <a href="#shipping_confirmation">Example</a>	|	
+|	Payment confirmation	| Notify customers that their payment has been processed.	|	<a href="#payment_confirmation">Example</a>	|	
+|	Shipping confirmation	|	Notify customers that their order is on the way| <a href="#shipping_confirmation">Example</a>	|	
 |	Delivery confirmation	|	Notify the user that the package was delivered	| <a href="#delivery_confirmation">Example</a>	|	
-|	Order invoice	|	Notify customers that their payment has been processed.	| <a href="#order_invoice">Example</a>	|	
-|	Cancellation confirmation	|	Notify customers that their order has been cancelled.	| <a href="#cancellation_confirmation">Example</a>	|	
-|	Refund confirmation	|	Notify customers that their refund has been processed.| <a href="#refund_confirmation">Example</a>	|	
+|	Order invoice	|	Send a receipt to customers when they buy something from your store.	| <a href="#order_invoice">Example</a>	|	
+|	Cancellation confirmation	|	Notify customers that their order has been cancelled	| <a href="#cancellation_confirmation">Example</a>	|	
+|	Refund confirmation	|	Notify customers that their refund has been processed| <a href="#refund_confirmation">Example</a>	|	
 |	New user	|	Notify users about their registration	| <a href="#new_user">Example</a>	|	
 |	Abandoned cart	|	Notify customer one day after his cart is abandoned 	| <a href="#abandoned_cart">Example</a>	|	
 
@@ -255,8 +255,12 @@ In the following code you can see the example of an e-mail sent to new useers wh
 
 <html>
   <body>     
-    <h1>Hello {{var:name.given_name}}, we are very happy in seeing you here</h1>
-    
+    <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
+    {% for item in var:items %}
+        <li>
+          Product: {{ item.name }}
+        </li>
+      {% endfor %}
   </body>
 </html>
 
@@ -270,14 +274,14 @@ In the following code you can see the example of an e-mail sent right after the 
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
     <p>
-      You just bought the the following items:
+      Take a closer look in the items that you are missing:
     </p>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Product: {{ item.name }}
         </li>
       {% endfor %}
     </ul>
