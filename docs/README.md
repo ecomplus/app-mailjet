@@ -4,7 +4,7 @@
 
 1. [Introduction](#introduction)
 
-2. [List of transactional emails](#List_of_transactional_emails)
+2. [List of transactional emails](#list_of_transactional_emails)
 
 3. [Examples](#examples)
 
@@ -32,7 +32,7 @@ This document is intended to list predefined variables when building custom tran
 
 In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">customer</a> data structures.
 
-# List of transactional emails
+<h1 id="list_of_transactional_emails"> List of transactional emails </h1>
 
 In the following table you can see the customizable e-mails.
 
@@ -48,9 +48,9 @@ In the following table you can see the customizable e-mails.
 |	New user	|	Notify users about their registration	| <a href="#new_user">Example</a>	|	
 |	Abandoned cart	|	Notify customer one day after his cart is abandoned 	| <a href="#abandoned_cart">Example</a>	|	
 
-Links to visualyze our resource's full data structure.
 
-## Examples of emails template
+
+## Examples
 
 <h3 id="order_confirmation">Order confirmation</h3>
 
