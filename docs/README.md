@@ -8,23 +8,23 @@
 
 3. [Examples](#examples)
 
- * [Order confirmation](#order_confirmation)
- 
- * [Payment confirmation](#payment_confirmation)
- 
- * [Shipping confirmation](#shipping_confirmation)
- 
- * [Delivery confirmation](#delivery_confirmation)
- 
- * [Order invoice](#order_invoice)
- 
- * [Cancellation confirmation](#cancellation_confirmation)
- 
- * [Refund confirmation](#refund_confirmation)
- 
- * [New user](#new_user)
- 
- * [Abandoned cart](#abandoned_cart)
+  * [Order confirmation](#order_confirmation)
+
+  * [Payment confirmation](#payment_confirmation)
+
+  * [Shipping confirmation](#shipping_confirmation)
+
+  * [Delivery confirmation](#delivery_confirmation)
+
+  * [Order invoice](#order_invoice)
+
+  * [Cancellation confirmation](#cancellation_confirmation)
+
+  * [Refund confirmation](#refund_confirmation)
+
+  * [New user](#new_user)
+
+  * [Abandoned cart](#abandoned_cart)
 
 # Introduction
 
@@ -215,7 +215,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 
 ```
 
-<h3 id="Refund_confirmation" > Refund confirmation </h3>
+<h3 id="refund_confirmation" > Refund confirmation </h3>
 
 In the following code you can see the example of an e-mail sent when the buyer's payment amount is refunded. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
