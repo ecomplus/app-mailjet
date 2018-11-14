@@ -60,9 +60,9 @@ In the following code you can see the example of an e-mail sent right after the 
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{var:name}}! We just recived your order #{{var:number}}</h1>
     <p>
-      You just bought the the following items:
+     Now we're witing for the payment to be confirmed so we can send you this goodies: 
     </p>
     <ul>
       {% for item in var:items %}
@@ -71,9 +71,6 @@ In the following code you can see the example of an e-mail sent right after the 
         </li>
       {% endfor %}
     </ul>
-    <p>
-      Now you just got to wait the delivery!
-    </p>
   </body>
 </html>
 
@@ -87,19 +84,19 @@ In the following code you can see the example of an e-mail sent right after the 
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{var:name}}! your payment for order {{var:number}} was aproved</h1>
     <p>
-      You just bought the the following items:
+      You just bought the the following amazing items:
     </p>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Product: {{ item.name }}x {{items.quantity}}       Price: {{ item.final_price }}
         </li>
       {% endfor %}
     </ul>
     <p>
-      Now you just got to wait the delivery!
+      Now you just wait the delivery!
     </p>
   </body>
 </html>
@@ -114,20 +111,28 @@ In the following code you can see the example of an e-mail sent when the shippin
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{ var:name }}! The products of order {{ var:number }} are on the way!</h1>
     <p>
-      You just bought the the following items:
+      Here you can see your product(s), it's delivery time and download the invoice :
     </p>
     <ul>
-      {% for item in var:items %}
+      {% for shipping_lines in var:shipping_lines %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Days to deliver: {{ shipping_lines.delivery_time.days }}
+          {% for invoices in shipping_lines %}
+            <a href="{{ shipping_lines.invoices.link }}">Link to download the invoice</a>
+          {% endfor %}
+          <ul>
+           <p>Products:</p>
+            {% for items in shipping_lines %}
+              <li>
+                {{ shipping_lines.items }}
+              </li>
+            {% endfor %}
+          </ul>
         </li>
       {% endfor %}
     </ul>
-    <p>
-      Now you just got to wait the delivery!
-    </p>
   </body>
 </html>
 
@@ -141,20 +146,21 @@ In the following code you can see the example of an e-mail sent when the shippin
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{ var:name }}, your package from order {{ var:number }} was delivered!</h1>
     <p>
-      You just bought the the following items:
+      Now just enjoy your purchases. =)
+      And do not forget, whenever you need us, we'll be here.
     </p>
-    <ul>
+   <p>
+    Order details:
+   </p>
+   <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Product: {{ item.name }}x {{items.quantity}}       Price: {{ item.final_price }}
         </li>
       {% endfor %}
     </ul>
-    <p>
-      Now you just got to wait the delivery!
-    </p>
   </body>
 </html>
 
