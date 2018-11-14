@@ -4,15 +4,15 @@ This document is intended to list predefined Contact Properties names's when bui
 
 |	E-mail	| Description	|	Link to	example	|
 | :---:       | :---: | :---: |
-|	Order confirmation	|	Send a receipt to customers when they buy something from your store.	| <a href="order_confirmation">Example</a> 	|	
-|	Payment confirmation	| Notify customars that their payment was confirmed	|	<a href="payment_confirmation">Example</a>	|	
-|	Shipping confirmation	|	Notify customers that their order is on the way.| <a href="shipping_confirmation">Example</a>	|	
-|	Delivery confirmation	|	Notify the user that the package was delivered	| <a href="delivery_confirmation">Example</a>	|	
-|	Order invoice	|	Notify customers that their payment has been processed.	| <a href="order_invoice">Example</a>	|	
-|	Cancellation confirmation	|	Notify customers that their order has been cancelled.	| <a href="cancellation_confirmation">Example</a>	|	
-|	Refund confirmation	|	Notify customers that their refund has been processed.| <a href="refund_confirmation">Example</a>	|	
-|	New user	|	Notify users about their registration	| <a href="new_user">Example</a>	|	
-|	Abandoned cart	|	Notify customer one day after his cart is abandoned 	| <a href="abandoned_cart">Example</a>	|	
+|	Order confirmation	|	Send a receipt to customers when they buy something from your store.	| <a href="#order_confirmation">Example</a> 	|	
+|	Payment confirmation	| Notify customars that their payment was confirmed	|	<a href="#payment_confirmation">Example</a>	|	
+|	Shipping confirmation	|	Notify customers that their order is on the way.| <a href="#shipping_confirmation">Example</a>	|	
+|	Delivery confirmation	|	Notify the user that the package was delivered	| <a href="#delivery_confirmation">Example</a>	|	
+|	Order invoice	|	Notify customers that their payment has been processed.	| <a href="#order_invoice">Example</a>	|	
+|	Cancellation confirmation	|	Notify customers that their order has been cancelled.	| <a href="#cancellation_confirmation">Example</a>	|	
+|	Refund confirmation	|	Notify customers that their refund has been processed.| <a href="#refund_confirmation">Example</a>	|	
+|	New user	|	Notify users about their registration	| <a href="#new_user">Example</a>	|	
+|	Abandoned cart	|	Notify customer one day after his cart is abandoned 	| <a href="#abandoned_cart">Example</a>	|	
 
 
 In these transactional e-mails you can use custom info about the order, cart or customer you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a>, with the same property name that this info is given in our data structure. 
