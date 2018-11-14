@@ -61,16 +61,22 @@ In the following code you can see the example of an e-mail sent right after the 
 ```html
 <html>
   <body>     
-    <h1>Hello {{var:name}}! We just recived your order #{{var:number}}</h1>
+    <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  status_link  }}">#{{  var:number  }}</a></h1>
     <p>
      Now we're waiting for the payment to be confirmed so we can send you this goodies: 
     </p>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} x {{items.quantity}} Price: {{ item.final_price }}
+          Product: <img v-bind:src="{{ picture.big.url }}" />{{ item.name }} x {{items.quantity}} Price: {{ item.final_price }}
         </li>
       {% endfor %}
+        <p>
+        Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
+        Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
+        Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
+        Total:  {{  currency_symbol  }} {{  amount.total  }}
+        </p>
     </ul>
   </body>
 </html>
@@ -83,14 +89,14 @@ In the following code you can see the example of an e-mail sent right after the 
 ```html
 <html>
   <body>     
-    <h1>Hello {{var:name}}! your payment for order {{var:number}} was aproved</h1>
+    <h1>Hello {{var:name}}! your payment for order #{{  var:number  }} was aproved</h1>
     <p>
       You just bought the the following amazing items:
     </p>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} x {{items.quantity}} Price: {{ item.final_price }}
+          Product: {{ item.name }} x {{items.quantity}} Price: {{  item.final_price  }}
         </li>
       {% endfor %}
     </ul>
@@ -108,7 +114,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 ```html
 <html>
   <body>     
-    <h1>Hello {{ var:name }}! The products of order {{ var:number }} are on the way!</h1>
+    <h1>Hello {{ var:name }}! The products of order #{{ var:number }} are on the way!</h1>
     <p>
       Here you can see your product(s) and it's delivery time:
     </p>
@@ -138,7 +144,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 ```html
 <html>
   <body>     
-    <h1>Hello {{ var:name }}, your package from order {{ var:number }} was delivered!</h1>
+    <h1>Hello {{ var:name }}, your package from order #{{ var:number }} was delivered!</h1>
     <p>
       Now just enjoy your purchases. =)
       And do not forget, whenever you need us, we'll be here.
