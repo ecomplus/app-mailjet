@@ -28,9 +28,9 @@
 
 # Introduction
 
-This document is intended to list predefined variables when building custom transactional e-mails sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in a store's order, cart or customer. 
+This document is intended to list predefined variables when building custom transactional e-mails to be sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in a store's order, cart or customer. 
 
-In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">customer</a>data structure.
+In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">customer</a> data structures.
 
 # List of transactional emails
 
@@ -50,13 +50,11 @@ In the following table you can see the customizable e-mails.
 
 Links to visualyze our resource's full data structure.
 
-
-
 ## Examples of emails template
 
-<h3 id="payment_confirmation" > Payment confirmation </h3>
+<h3 id="order_confirmation">Order confirmation</h3>
 
-In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
+In the following code you can see the example of an e-mail sent right after the buyer's finished the order in checkout. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
 
@@ -80,9 +78,10 @@ In the following code you can see the example of an e-mail sent right after the 
 </html>
 
 ```
-<h3 id="order_confirmation">Order confirmation</h3>
 
-In the following code you can see the example of an e-mail sent right after the buyer's finished the order in checkout. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
+<h3 id="payment_confirmation" > Payment confirmation </h3>
+
+In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
 
