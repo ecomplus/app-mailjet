@@ -25,20 +25,20 @@ In the following code you can see an example of an  e-mail:
 
 ```html
 
-&lt;html&gt;
-  &lt;body&gt;     
-    &lt;h1&gt;Hello, your payment for order {{var:number}} was aproved&lt;/h1&gt;
-    &lt;p&gt;
+<html>
+  <body>     
+    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
+    <p>
       Thank you for buying hte  the following items:
-    &lt;/p&gt;
-    &lt;ul&gt;
+    </p>
+    <ul>
       {% for item in var:items %}
-        &lt;li&gt;
+        <li>
           Product: {{ item.name }} Price: {{ item.final_price }}
-        &lt;/li&gt;
+        </li>
       {% endfor %}
-    &lt;/ul&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+    </ul>
+  </body>
+</html>
 
 ```
