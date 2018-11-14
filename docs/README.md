@@ -59,7 +59,6 @@ In the following table you can see the customizable e-mails.
 In the following code you can see the example of an e-mail sent right after the buyer's finished the order in checkout. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{var:name}}! We just recived your order #{{var:number}}</h1>
@@ -75,7 +74,6 @@ In the following code you can see the example of an e-mail sent right after the 
     </ul>
   </body>
 </html>
-
 ```
 
 <h3 id="payment_confirmation" > Payment confirmation </h3>
@@ -83,7 +81,6 @@ In the following code you can see the example of an e-mail sent right after the 
 In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{var:name}}! your payment for order {{var:number}} was aproved</h1>
@@ -102,7 +99,6 @@ In the following code you can see the example of an e-mail sent right after the 
     </p>
   </body>
 </html>
-
 ```
 
 <h3 id="shipping_confirmation" > Shipping confirmation </h3>
@@ -110,7 +106,6 @@ In the following code you can see the example of an e-mail sent right after the 
 In the following code you can see the example of an e-mail sent when the shipping company starts the delivery process. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{ var:name }}! The products of order {{ var:number }} are on the way!</h1>
@@ -135,7 +130,6 @@ In the following code you can see the example of an e-mail sent when the shippin
     </ul>
   </body>
 </html>
-
 ```
 
 <h3 id="delivery_confirmation" > Delivery confirmation </h3>
@@ -143,7 +137,6 @@ In the following code you can see the example of an e-mail sent when the shippin
 In the following code you can see the example of an e-mail sent when the shipping company notify that the packege was delivered. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{ var:name }}, your package from order {{ var:number }} was delivered!</h1>
@@ -163,7 +156,6 @@ In the following code you can see the example of an e-mail sent when the shippin
     </ul>
   </body>
 </html>
-
 ```
 
 <h3 id="order_invoice" > Order invoice </h3>
@@ -171,7 +163,6 @@ In the following code you can see the example of an e-mail sent when the shippin
 In the following code you can see the example of an e-mail sent when a invoice is generated for the buying transaction. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{ var:name }}, here is the invoice generated for order {{var:number}}</h1>
@@ -194,7 +185,6 @@ In the following code you can see the example of an e-mail sent when a invoice i
     </p>
   </body>
 </html>
-
 ```
 
 <h3 id="cancellation_confirmation">  Cancellation confirmation </h3>
@@ -202,7 +192,6 @@ In the following code you can see the example of an e-mail sent when a invoice i
 In the following code you can see the example of an e-mail sent when the buyer's payment was not aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{ var:name }}, your payment for order {{var:number}} was aproved</h1>
@@ -221,7 +210,6 @@ In the following code you can see the example of an e-mail sent when the buyer's
     </p>
   </body>
 </html>
-
 ```
 
 <h3 id="refund_confirmation" > Refund confirmation </h3>
@@ -229,7 +217,6 @@ In the following code you can see the example of an e-mail sent when the buyer's
 In the following code you can see the example of an e-mail sent when the buyer's payment amount is refunded. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{ var:name }},</h1>
@@ -240,7 +227,6 @@ In the following code you can see the example of an e-mail sent when the buyer's
     </p>
   </body>
 </html>
-
 ```
 
 <h3 id="new_user" > New user </h3>
@@ -248,7 +234,6 @@ In the following code you can see the example of an e-mail sent when the buyer's
 In the following code you can see the example of an e-mail sent to new useers when loggin in the first time in the store. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers"> Customer data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{var:name}}, it's a plesure to see you here!</h1>
@@ -257,7 +242,6 @@ In the following code you can see the example of an e-mail sent to new useers wh
    
   </body>
 </html>
-
 ```
 
 <h3 id="abandoned_cart"> Abandoned cart </h3>
@@ -265,7 +249,6 @@ In the following code you can see the example of an e-mail sent to new useers wh
 In the following code you can see the example of an e-mail sent right after the buyer's payment was aproved. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts"> Order data structure</a>.
  
 ```html
-
 <html>
   <body>     
     <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
@@ -281,6 +264,5 @@ In the following code you can see the example of an e-mail sent right after the 
     </ul>
   </body>
 </html>
-
 ```
 {% endraw %}
