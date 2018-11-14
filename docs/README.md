@@ -30,9 +30,9 @@
 
 # Introduction
 
-This document is intended to list predefined variables when building custom transactional e-mails to be sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggred by changes in a store's order, cart or customer. 
+This document is intended to list predefined variables when building custom transactional e-mails to be sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggered by changes in a store's order, cart or customer. 
 
-In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/cart-object">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers">customer</a> data structures.
+In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customer-object">customer</a> data structures.
 
 <h1 id="list_of_transactional_emails"> List of transactional emails </h1>
 
@@ -40,11 +40,11 @@ In the following table you can see the customizable e-mails.
 
 |	E-mail	| Description	|	Link to	example	|
 | :---:  | :---: | :---: |
-|	Order confirmation	|	Notify customers that their payment has been processed.	| <a href="#order_confirmation">Example</a> 	|	
-|	Payment confirmation	| Notify customers that their payment has been corfirmed.	|	<a href="#payment_confirmation">Example</a>	|	
+|	Order confirmation	|	Notify customers that their payment has been processed	| <a href="#order_confirmation">Example</a> 	|	
+|	Payment confirmation	| Notify customers that their payment has been corfirmed	|	<a href="#payment_confirmation">Example</a>	|	
 |	Shipping confirmation	|	Notify customers that their order is on the way| <a href="#shipping_confirmation">Example</a>	|	
 |	Delivery confirmation	|	Notify the user that the package was delivered	| <a href="#delivery_confirmation">Example</a>	|	
-|	Order invoice	|	Send a receipt to customers when they buy something from your store.	| <a href="#order_invoice">Example</a>	|	
+|	Order invoice	|	Send a receipt to customers when they buy something from your store	| <a href="#order_invoice">Example</a>	|	
 |	Cancellation confirmation	|	Notify customers that their order has been cancelled	| <a href="#cancellation_confirmation">Example</a>	|	
 |	Refund confirmation	|	Notify customers that their refund has been processed| <a href="#refund_confirmation">Example</a>	|	
 |	New user	|	Notify users about their registration	| <a href="#new_user">Example</a>	|	
@@ -60,24 +60,26 @@ In the following code you can see the example of an e-mail sent right after the 
  
 ```html
 <html>
-  <body>     
+  <body>
     <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  status_link  }}">#{{  var:number  }}</a></h1>
     <p>
-     Now we're waiting for the payment to be confirmed so we can send you this goodies: 
+     Now we're waiting for the payment to be confirmed so we can send your products.   
+     
     </p>
+    <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
         <li>
-          Product: <img v-bind:src="{{ picture.big.url }}" />{{ item.name }} x {{items.quantity}} Price: {{ item.final_price }}
+       Product: <img v-bind:src="{{ picture.big.url }}" />{{ items.name }} x {{items.quantity}} Price: {{ items.final_price }}
         </li>
       {% endfor %}
-        <p>
+    </ul>
+    <p>
         Subtotal: {{  currency_symbol  }} {{  amount.subtotal  }} <br>
         Freight: {{  currency_symbol  }} {{  amount.freight  }} <br>
         Discount: {{  currency_symbol  }} {{  amount.discount  }} <br>
         Total:  {{  currency_symbol  }} {{  amount.total  }}
-        </p>
-    </ul>
+    </p>
   </body>
 </html>
 ```
@@ -96,7 +98,7 @@ In the following code you can see the example of an e-mail sent right after the 
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} x {{items.quantity}} Price: {{  item.final_price  }}
+          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
         </li>
       {% endfor %}
     </ul>
@@ -115,22 +117,13 @@ In the following code you can see the example of an e-mail sent when the shippin
 <html>
   <body>     
     <h1>Hello {{ var:name }}! The products of order #{{ var:number }} are on the way!</h1>
-    <p>
-      Here you can see your product(s) and it's delivery time:
-    </p>
     <ul>
-      {% for shipping_lines in var:shipping_lines %}
-        <li>
-          Days to deliver: {{ shipping_lines.delivery_time.days }}  
-          <ul>
-            <p>Products:</p>
-            {% for items in shipping_lines %}
-              <li>
-                {{ shipping_lines.items }}
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+      {% for shipping_lines in var:items %}
+        {% if data:shipping_lines.scheduled_delivery:"N/A" %}
+          <p> You packege will be delivered at {{ shipping_lines.scheduled_delivery }}
+        {% else %}
+          <p> Your packege will be deliverede in {{ shipping_lines.delivery_time.days  }</p>
+        {% endif %}
       {% endfor %}
     </ul>
   </body>
@@ -154,7 +147,7 @@ In the following code you can see the example of an e-mail sent when the shippin
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }}x {{items.quantity}}       Price: {{ item.final_price }}
+          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
         </li>
       {% endfor %}
     </ul>
@@ -180,7 +173,7 @@ In the following code you can see the example of an e-mail sent when a invoice i
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
         </li>
       {% endfor %}
     </ul>
@@ -205,7 +198,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
     <ul>
       {% for item in var:items %}
         <li>
-          Product: {{ item.name }} Price: {{ item.final_price }}
+          Product: {{ items.name }} x {{items.quantity}} Price: {{  items.final_price  }}
         </li>
       {% endfor %}
     </ul>
