@@ -7,24 +7,24 @@
 2. [List of transactional emails](#list_of_transactional_emails)
 
 3. [Examples](#examples)
+    
+    * [Order confirmation](#order_confirmation)
 
-  * [Order confirmation](#order_confirmation)
+    * [Payment confirmation](#payment_confirmation)
 
-  * [Payment confirmation](#payment_confirmation)
+    * [Shipping confirmation](#shipping_confirmation)
 
-  * [Shipping confirmation](#shipping_confirmation)
+    * [Delivery confirmation](#delivery_confirmation)
 
-  * [Delivery confirmation](#delivery_confirmation)
+    * [Order invoice](#order_invoice)
 
-  * [Order invoice](#order_invoice)
+    * [Cancellation confirmation](#cancellation_confirmation)
 
-  * [Cancellation confirmation](#cancellation_confirmation)
+    * [Refund confirmation](#refund_confirmation)
 
-  * [Refund confirmation](#refund_confirmation)
+    * [New user](#new_user)
 
-  * [New user](#new_user)
-
-  * [Abandoned cart](#abandoned_cart)
+    * [Abandoned cart](#abandoned_cart)
 
 {% raw %}
 
