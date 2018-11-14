@@ -49,8 +49,7 @@ In the following code you can see the example of an e-mail sent right after the 
 </html>
 
 ```
-
-<h2 id="order_confirmation" Order confirmation>
+<h2 id="order_confirmation">Order confirmation</h2>
 
 In the following code you can see the example of an e-mail sent right after the buyer's finished the order in checkout. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object"> Order data structure</a>.
  
