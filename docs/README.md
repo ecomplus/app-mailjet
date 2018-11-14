@@ -115,10 +115,9 @@ In the following code you can see the example of an e-mail sent when the shippin
     <ul>
       {% for shipping_lines in var:shipping_lines %}
         <li>
-          Days to deliver: {{ shipping_lines.delivery_time.days }}
-          
+          Days to deliver: {{ shipping_lines.delivery_time.days }}  
           <ul>
-           <p>Products:</p>
+            <p>Products:</p>
             {% for items in shipping_lines %}
               <li>
                 {{ shipping_lines.items }}
@@ -143,11 +142,10 @@ In the following code you can see the example of an e-mail sent when the shippin
     <p>
       Now just enjoy your purchases. =)
       And do not forget, whenever you need us, we'll be here.
+      <br>
+      Order details:
     </p>
-   <p>
-    Order details:
-   </p>
-   <ul>
+    <ul>
       {% for item in var:items %}
         <li>
           Product: {{ item.name }}x {{items.quantity}}       Price: {{ item.final_price }}
@@ -238,8 +236,8 @@ In the following code you can see the example of an e-mail sent to new useers wh
   <body>     
     <h1>Hello {{var:name}}, it's a plesure to see you here!</h1>
     
-    Your registration was successful, enjoy our offers!!
-   
+    <p>Your registration was successful, enjoy our offers!!</p>
+    
   </body>
 </html>
 ```
