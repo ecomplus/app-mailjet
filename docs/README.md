@@ -38,8 +38,8 @@ In the following table you can see the customizable e-mails.
 
 |	E-mail	| Description	|	Link to	example	|
 | :---:  | :---: | :---: |
-|	Order confirmation	|	Send a receipt to customers when they buy something from your store.	| <a href="#order_confirmation">Example</a> 	|	
-|	Payment confirmation	| Notify customers that their payment has been processed.	|	<a href="#payment_confirmation">Example</a>	|	
+|	Order confirmation	|	Notify customers that their payment has been processed.	| <a href="#order_confirmation">Example</a> 	|	
+|	Payment confirmation	| Notify customers that their payment has been corfirmed.	|	<a href="#payment_confirmation">Example</a>	|	
 |	Shipping confirmation	|	Notify customers that their order is on the way| <a href="#shipping_confirmation">Example</a>	|	
 |	Delivery confirmation	|	Notify the user that the package was delivered	| <a href="#delivery_confirmation">Example</a>	|	
 |	Order invoice	|	Send a receipt to customers when they buy something from your store.	| <a href="#order_invoice">Example</a>	|	
@@ -113,15 +113,13 @@ In the following code you can see the example of an e-mail sent when the shippin
   <body>     
     <h1>Hello {{ var:name }}! The products of order {{ var:number }} are on the way!</h1>
     <p>
-      Here you can see your product(s), it's delivery time and download the invoice :
+      Here you can see your product(s) and it's delivery time:
     </p>
     <ul>
       {% for shipping_lines in var:shipping_lines %}
         <li>
           Days to deliver: {{ shipping_lines.delivery_time.days }}
-          {% for invoices in shipping_lines %}
-            <a href="{{ shipping_lines.invoices.link }}">Link to download the invoice</a>
-          {% endfor %}
+          
           <ul>
            <p>Products:</p>
             {% for items in shipping_lines %}
@@ -174,10 +172,14 @@ In the following code you can see the example of an e-mail sent when a invoice i
 
 <html>
   <body>     
-    <h1>Hello, your payment for order {{var:number}} was aproved</h1>
-    <p>
-      You just bought the the following items:
-    </p>
+    <h1>Hello, here is the invoice generated for order {{var:number}}</h1>
+    <li>
+      {% for shipping_lines in var:shipping_lines %}
+        {% for invoices in shipping_lines %}
+          <a href="{{ shipping_lines.invoices.link }}">Link to download the invoice</a>
+        {% endfor %}
+      {% endfor %}
+    </li>
     <ul>
       {% for item in var:items %}
         <li>
