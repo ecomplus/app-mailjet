@@ -271,7 +271,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 
 <h3 id="new_user" > New user </h3>
 
-In the following code you can see the example of an e-mail sent to new useers when loggin in the first time in the store. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers"> Customer data structure</a>.
+In the following code you can see the example of an e-mail sent to new users when login in the first time in the store. This e-mail uses our <a href="https://developers.e-com.plus/docs/api/#/store/customers/customers"> Customer data structure</a>.
  
 ```html
 <html>
