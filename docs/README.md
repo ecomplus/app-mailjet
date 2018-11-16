@@ -62,9 +62,8 @@ In the following code you can see the example of an e-mail sent right after the 
 <html>
   <body>
     <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  var:status_link  }}">#{{  var:number  }}</a></h1>
-    {% for shipping_lines in var:items %}
-      <p> Your package will be delivered in {{ shipping_lines.delivery_time.working_days  }} working days </p>
-    {% endfor %}
+    <p> Your package will be delivered in {% for shipping_line in var:shipping_lines %} {{ shipping_line.delivery_time.days }} {% endfor %} working days </p>
+    
     <h3> Order details:</h3>
     <ul>
       {% for item in var:items %}
