@@ -29,4 +29,5 @@ process.on('uncaughtException', (err) => {
 })
 
 app.post('/auth/callback', routes.auth.app)
+app.post('/notifications', routes.webhooks.notifications)
 app.listen(port)
