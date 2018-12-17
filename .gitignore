@@ -2,6 +2,9 @@
 _stderr
 # Logs
 logs
+logger.err
+logger.out
+
 *.log
 npm-debug.log*
 yarn-debug.log*
