@@ -23,7 +23,10 @@
   "dependencies": {
     "console-files": "^2.2.0",
     "dotenv": "^6.1.0",
+    "ecomplus-app-sdk": "^1.9.4",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rc16",
     "node-mailjet": "^3.3.1",
     "request": "^2.88.0",
     "sqlite3": "^4.0.3"
