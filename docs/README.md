@@ -32,7 +32,7 @@
 
 This document is intended to list predefined variables when building custom transactional e-mails to be sent to customers via [Mailjet](https://www.mailjet.com/). Each of these e-mails are triggered by changes in a store's order, cart or customer.
 
-In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customer-object">customer</a> data structures.
+In these transactional e-mails you can use custom info about the resource you are reffering to. To use this info, you have to set variables in your <a href="https://app.mailjet.com/templates/transactional">Mailjet transactional emails</a>, following <a href="https://dev.mailjet.com/template-language/reference/">Mailjet's template language</a> and our <a href="https://developers.e-com.plus/docs/api/#/store/orders/order-object">order</a>, <a href="https://developers.e-com.plus/docs/api/#/store/carts/carts">cart</a>, and <a href="https://developers.e-com.plus/docs/api/#/store/customers/customer-object">customer</a> data structures. To send the e-mail, we create a <a href="https://dev.mailjet.com/template-language/reference/#mjcontact">contact in Mailjet</a>, and it's info can also be used. 
 
 <h1 id="list_of_transactional_emails"> List of transactional emails </h1>
 
@@ -48,7 +48,7 @@ In the following table you can see the customizable e-mails.
 |	Cancellation confirmation	|	Notify customers that their order has been cancelled	| <a href="#cancellation_confirmation">Example</a>	|
 |	Refund confirmation	|	Notify customers that their refund has been processed| <a href="#refund_confirmation">Example</a>	|
 |	New user	|	Notify users about their registration	| <a href="#new_user">Example</a>	|
-|	Abandoned cart	|	Notify customer one day after his cart is abandoned 	| <a href="#abandoned_cart">Example</a>	|
+|	Abandoned cart	|	Notify customers about their abandoned cart 	| <a href="#abandoned_cart">Example</a>	|
 
 
 
@@ -61,7 +61,7 @@ In the following code you can see the example of an e-mail sent right after the 
 ```html
 <html>
   <body>
-    <h1>Hello {{  var:name  }}! We just recived your order <a href="{{  var:status_link  }}">#{{  var:number  }}</a></h1>
+    <h1>Hello {{  mj:contact.name  }}! We just recived your order <a href="{{  var:status_link  }}">#{{  var:number  }}</a></h1>
     <p> Your package will be delivered in {% for shipping_line in var:shipping_lines %} {{ shipping_line.delivery_time.days }} {% endfor %} working days </p>
     
     <h3> Order details:</h3>
@@ -90,7 +90,7 @@ In the following code you can see the example of an e-mail sent right after the 
 ```html
 <html>
   <body>
-    <h1>Hello {{var:name}}! your payment for order <a href="{{  var:status_link  }}">#{{  var:number  }}</a> was aproved</h1>
+    <h1>Hello {{mj:contact.name}}! your payment for order <a href="{{  var:status_link  }}">#{{  var:number  }}</a> was aproved</h1>
     {% for shipping_line in var:shipping_lines %}
       <p> We'll post your package for shipping in {{ shipping_lines.posting_deadline.days  }} days </p>
     {% endfor %}
@@ -119,7 +119,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 ```html
 <html>
   <body>
-    <h1>Hello {{ var:name }}! The products of order <a href="{{  var:status_link  }}">#{{  var:number  }}</a> are on the way!</h1>
+    <h1>Hello {{ mj:contact.name }}! The products of order <a href="{{  var:status_link  }}">#{{  var:number  }}</a> are on the way!</h1>
     <p>
       {% for shipping_line in var:shipping_lines %}
         {% if data:shipping_line.scheduled_delivery:"N/A" %}
@@ -160,7 +160,7 @@ In the following code you can see the example of an e-mail sent when the shippin
 ```html
 <html>
   <body>
-    <h1>Hello {{ var:name }}, your package from order <a href="{{  var:status_link  }}">#{{  var:number  }}</a> was delivered!</h1>
+    <h1>Hello {{ mj:contact.name }}, your package from order <a href="{{  var:status_link  }}">#{{  var:number  }}</a> was delivered!</h1>
     <p>
       Now just enjoy your purchases. =)
       And do not forget, whenever you need us, we'll be here.
@@ -192,7 +192,7 @@ In the following code you can see the example of an e-mail sent when a invoice i
 ```html
 <html>
   <body>
-    <h1>Hello {{ var:name }}, here is the invoice generated for order <a href="{{  var:status_link  }}">#{{  var:number  }}</a></h1>
+    <h1>Hello {{ mj:contact.name }}, here is the invoice generated for order <a href="{{  var:status_link  }}">#{{  var:number  }}</a></h1>
     <li>
       {% for shipping_line in var:shipping_lines %}
         {% for invoices in shipping_lines %}
@@ -226,7 +226,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 ```html
 <html>
   <body>
-    <h1>Hello {{  var:name  }}, your payment for order <a href="{{  status_link  }}">#{{  var:number  }}</a> was cancelled :( </h1>
+    <h1>Hello {{  mj:contact.name  }}, your payment for order <a href="{{  status_link  }}">#{{  var:number  }}</a> was cancelled :( </h1>
     <p>
       But do not worry, you still can buy these amazing items. Here is a <a href="{{  var:checkout_link  }}">link</a> to our checkout, if you want to try buying this again.
     </p>
@@ -256,7 +256,7 @@ In the following code you can see the example of an e-mail sent when the buyer's
 ```html
 <html>
   <body>
-    <h1>Hello {{ var:name }},</h1>
+    <h1>Hello {{ mj:contact.name }},</h1>
     <p>
        We refunded the payment relative to order <a href="{{  status_link  }}">#{{  var:number  }}</a>
     <br>
@@ -273,7 +273,7 @@ In the following code you can see the example of an e-mail sent to new users whe
 ```html
 <html>
   <body>
-    <h1>Hello {{var:name}}, it's a pleasure to see you here.</h1>
+    <h1>Hello {{mj:contact.name}}, it's a pleasure to see you here.</h1>
       {% if data:discount.value:"N/A" %}
         <p>Your registration was successful, enjoy our offers!!</p>
         {% else %}
@@ -290,7 +290,7 @@ In the following code you can see the example of an e-mail sent when the custome
 ```html
 <html>
   <body>
-    <h1>Hello {{var:name}}, looks like you forgot some items in the cart</h1>
+    <h1>Hello {{mj:contact.name}}, looks like you forgot some items in the cart</h1>
     <p>
       Buy this items today and get 30% discount with the cupom #SUPERSALE. Take a closer look in the items that you are missing:
     </p>
