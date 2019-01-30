@@ -29,7 +29,8 @@
   "data": {
     "maillist": {
       "default": 1234
-    }
+    },
+    "is_abandoned": 2
   },
   "hidden_data": {
     "mailjet_key": "ZRsLkJs5XWOz9odJsUecaHEYWEj0Tdln1KuZV0kbuo9fDV",
