@@ -2,7 +2,7 @@
 
 ```javascript
 {
-	    "mailjet_key": "4a83269978e73bcd86c39bed367f7290",
+	"mailjet_key": "4a83269978e73bcd86c39bed367f7290",
         "mailjet_secret": "7b0924da7ef44ce59f29c52da0d3a6ab",
         "mailjet_from": {
             "name": "Talisson",
@@ -49,4 +49,8 @@
 }
 ```
 
+## CI
 
+When app version is production ready,
+[create a new release](https://github.com/ecomclub/app-mailjet/releases)
+to run automatic deploy.
