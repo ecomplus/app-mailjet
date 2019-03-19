@@ -51,11 +51,9 @@
 
 ## Production server
 
-Published at:
+Published at https://mailjet.ecomplus.biz.
 
-https://mailjet.ecomplus.biz
-
-### CI
+### Continuous deployment
 
 When app version is production ready,
 [create a new release](https://github.com/ecomclub/app-mailjet/releases)
