@@ -49,7 +49,11 @@
 }
 ```
 
-## CI
+## Production server
+
+https://mailjet.ecomplus.biz
+
+### CI
 
 When app version is production ready,
 [create a new release](https://github.com/ecomclub/app-mailjet/releases)
