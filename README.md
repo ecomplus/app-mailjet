@@ -49,8 +49,12 @@
 }
 ```
 
-## Continuous deployment
+## Production server
+
+Published at https://mailjet.ecomplus.biz
+
+### Continuous deployment
 
 When app version is **production ready**,
 [create a new release](https://github.com/ecomclub/app-mailjet/releases)
-to run automatic deploy.
+to run automatic deploy from `master` branch.
