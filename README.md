@@ -51,6 +51,7 @@
 
 ## Production server
 
+Published at:
 https://mailjet.ecomplus.biz
 
 ### CI
