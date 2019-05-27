@@ -7,6 +7,143 @@
   "version": "1.0.1",
   "type": "external",
   "github_repository": "https://github.com/ecomclub/app-mailjet",
+  "admin_settings": {
+    "maillist": {
+      "schema": {
+        "type": "object",
+        "title": "Lista de e-mail",
+        "required": [
+          "default"
+        ],
+          "properties": {
+            "default": {
+              "type": "integer",
+              "title": "Código da lista",
+              "description": "Insira o código da lista criada no mailjet",
+              "default": 0,
+              "examples": [
+                1234
+              ]
+            }
+          }
+        },
+        "hide": "false"
+      },
+      "is_abandoned": {
+        "schema": {
+          "type": "integer",
+          "title": "Quantidade de dias carrinho abandonado",
+          "description": "Insira a quantidade de dias para o envio do e-mail de carrinho abandonado",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "hide": "false"
+      },
+      "mailjet_key": {
+        "schema": {
+          "type": "string",
+          "title": "API Key",
+          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Key",
+          "default": "",
+          "examples": [
+            "ZRsLkJs5XWOz9odJsUecaHEYWEj0Tdln1KuZV0kbuo9fDV"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "hide": true
+      },
+      "mailjet_secret": {
+        "schema": {
+          "type": "string",
+          "title": "API Secret",
+          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Secret",
+          "default": "",
+          "examples": [
+            "IcpezUIwlarsr75zaaQdovM4ZT0kw8W5jM6hl5x97zR9Y"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "hide": true
+      },
+      "mailjet_from": {
+        "schema": {
+          "type": "object",
+          "title": "Informações lojista",
+          "description": "Nome e e-mail devem ser informados",
+          "required": [
+            "name",
+            "email"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Insira seu nome",
+              "default": "",
+              "examples": [
+                "Talisson"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "email": {
+              "type": "string",
+              "title": "Insira seu e-mail",
+              "default": "",
+              "examples": [
+                "talissonf@gmail.com"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "hide": true
+      },
+      "mailjet_templates": {
+        "schema": {
+          "type": "array",
+          "title": "Templates mailjet",
+          "items": {
+            "type": "object",
+            "title": "",
+            "required": [
+              "trigger",
+              "id"
+            ],
+            "properties": {
+              "trigger": {
+                "type": "string",
+                "title": "Templates de e-mail da loja",
+                "description": "Configure os templates de e-mail recorrente de pagamento, entrega, pedido, cadastro e carrinho abandonado",
+                "default": "",
+                "examples": [
+                  "order_confirmation",
+                  "payment_confirmation",
+                  "shipping_confirmation",
+                  "delivery_confirmation",
+                  "order_invoice",
+                  "cancellation_confirmation",
+                  "refund_confirmation",
+                  "refund_confirmation",
+                  "new_user",
+                  "adandoned_cart"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "id": {
+                "type": "integer",
+                "title": "ID do template de e-mail",
+                "default": 0,
+                "examples": [
+                  588725
+                ]
+              }
+            }
+          }
+        },
+        "hide": true
+      }
+    },
   "authentication": true,
   "auth_callback_uri": "https://mailjet.ecomplus.biz/callback",
   "auth_scope": {
