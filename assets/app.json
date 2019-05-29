@@ -19,11 +19,8 @@
             "default": {
               "type": "integer",
               "title": "Código da lista",
-              "description": "Insira o código da lista criada no mailjet",
-              "default": 0,
-              "examples": [
-                1234
-              ]
+              "description": "Insira o código da lista criada no mailjet. Exemplo: 1234",
+              "default": 0
             }
           }
         },
@@ -34,10 +31,7 @@
           "type": "integer",
           "title": "Quantidade de dias carrinho abandonado",
           "description": "Insira a quantidade de dias para o envio do e-mail de carrinho abandonado",
-          "default": 0,
-          "examples": [
-            2
-          ]
+          "default": 0
         },
         "hide": "false"
       },
@@ -45,12 +39,7 @@
         "schema": {
           "type": "string",
           "title": "API Key",
-          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Key",
-          "default": "",
-          "examples": [
-            "ZRsLkJs5XWOz9odJsUecaHEYWEj0Tdln1KuZV0kbuo9fDV"
-          ],
-          "pattern": "^(.*)$"
+          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Key."
         },
         "hide": true
       },
@@ -58,12 +47,7 @@
         "schema": {
           "type": "string",
           "title": "API Secret",
-          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Secret",
-          "default": "",
-          "examples": [
-            "IcpezUIwlarsr75zaaQdovM4ZT0kw8W5jM6hl5x97zR9Y"
-          ],
-          "pattern": "^(.*)$"
+          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Secret"
         },
         "hide": true
       },
@@ -79,21 +63,12 @@
           "properties": {
             "name": {
               "type": "string",
-              "title": "Insira seu nome",
-              "default": "",
-              "examples": [
-                "Talisson"
-              ],
-              "pattern": "^(.*)$"
+              "title": "Insira seu nome"
             },
             "email": {
               "type": "string",
               "title": "Insira seu e-mail",
-              "default": "",
-              "examples": [
-                "talissonf@gmail.com"
-              ],
-              "pattern": "^(.*)$"
+              "format": "email"
             }
           }
         },
@@ -105,7 +80,7 @@
           "title": "Templates mailjet",
           "items": {
             "type": "object",
-            "title": "",
+            "title": "Configurações do template",
             "required": [
               "trigger",
               "id"
@@ -114,29 +89,12 @@
               "trigger": {
                 "type": "string",
                 "title": "Templates de e-mail da loja",
-                "description": "Configure os templates de e-mail recorrente de pagamento, entrega, pedido, cadastro e carrinho abandonado",
-                "default": "",
-                "examples": [
-                  "order_confirmation",
-                  "payment_confirmation",
-                  "shipping_confirmation",
-                  "delivery_confirmation",
-                  "order_invoice",
-                  "cancellation_confirmation",
-                  "refund_confirmation",
-                  "refund_confirmation",
-                  "new_user",
-                  "adandoned_cart"
-                ],
-                "pattern": "^(.*)$"
+                "description": "Configure os templates de e-mail recorrente de pagamento, entrega, pedido, cadastro e carrinho abandonado. Exemplos: order_confirmation, payment_confirmation, shipping_confirmation, delivery_confirmation, order_invoice, new_user, adandoned_cart, cancellation_confirmation e refund_confirmation"
               },
               "id": {
                 "type": "integer",
                 "title": "ID do template de e-mail",
-                "default": 0,
-                "examples": [
-                  588725
-                ]
+                "default": 0
               }
             }
           }
