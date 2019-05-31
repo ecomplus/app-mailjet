@@ -7,6 +7,112 @@
   "version": "1.0.1",
   "type": "external",
   "github_repository": "https://github.com/ecomclub/app-mailjet",
+  "admin_settings": {
+    "maillist": {
+      "schema": {
+        "type": "object",
+        "title": "Lista de e-mail",
+        "required": [
+          "default"
+        ],
+          "properties": {
+            "default": {
+              "type": "integer",
+              "title": "Código da lista",
+              "description": "Insira o código da lista criada no mailjet. Exemplo: 1234",
+              "default": 0
+            }
+          }
+        },
+        "hide": "false"
+      },
+      "is_abandoned": {
+        "schema": {
+          "type": "integer",
+          "title": "Quantidade de dias carrinho abandonado",
+          "description": "Insira a quantidade de dias para o envio do e-mail de carrinho abandonado",
+          "default": 0
+        },
+        "hide": "false"
+      },
+      "mailjet_key": {
+        "schema": {
+          "type": "string",
+          "title": "API Key",
+          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Key."
+        },
+        "hide": true
+      },
+      "mailjet_secret": {
+        "schema": {
+          "type": "string",
+          "title": "API Secret",
+          "description": "Acesse o link https://app.mailjet.com/account/api_keys copie e cole a API Secret"
+        },
+        "hide": true
+      },
+      "mailjet_from": {
+        "schema": {
+          "type": "object",
+          "title": "Informações lojista",
+          "description": "Nome e e-mail devem ser informados",
+          "required": [
+            "name",
+            "email"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Insira seu nome"
+            },
+            "email": {
+              "type": "string",
+              "title": "Insira seu e-mail",
+              "format": "email"
+            }
+          }
+        },
+        "hide": true
+      },
+      "mailjet_templates": {
+        "schema": {
+          "type": "array",
+          "title": "Templates mailjet",
+          "items": {
+            "type": "object",
+            "title": "Configurações do template",
+            "required": [
+              "trigger",
+              "id"
+            ],
+            "properties": {
+              "trigger": {
+                "type": "string",
+                "title": "Templates de e-mail da loja",
+                "enum": [
+                  "order_confirmation",
+                  "payment_confirmation",
+                  "shipping_confirmation",
+                  "delivery_confirmation",
+                  "order_invoice",
+                  "new_user",
+                  "adandoned_cart",
+                  "cancellation_confirmation",
+                  "refund_confirmation"
+                ],
+                "description": "Selecione o template que deseje configurar"
+              },
+              "id": {
+                "type": "integer",
+                "title": "ID do template de e-mail",
+                "default": 0
+              }
+            }
+          }
+        },
+        "hide": true
+      }
+    },
   "authentication": true,
   "auth_callback_uri": "https://mailjet.ecomplus.biz/callback",
   "auth_scope": {
