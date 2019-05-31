@@ -89,7 +89,18 @@
               "trigger": {
                 "type": "string",
                 "title": "Templates de e-mail da loja",
-                "description": "Configure os templates de e-mail recorrente de pagamento, entrega, pedido, cadastro e carrinho abandonado. Exemplos: order_confirmation, payment_confirmation, shipping_confirmation, delivery_confirmation, order_invoice, new_user, adandoned_cart, cancellation_confirmation e refund_confirmation"
+                "enum": [
+                  "order_confirmation",
+                  "payment_confirmation",
+                  "shipping_confirmation",
+                  "delivery_confirmation",
+                  "order_invoice",
+                  "new_user",
+                  "adandoned_cart",
+                  "cancellation_confirmation",
+                  "refund_confirmation"
+                ],
+                "description": "Selecione o template que deseje configurar"
               },
               "id": {
                 "type": "integer",
