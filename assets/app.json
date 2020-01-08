@@ -1,85 +1,122 @@
 {
-  "_id": "5c378e71e48de855cee24b64",
   "app_id": 1242,
   "title": "Maijet",
   "slug": "maijet",
   "paid": false,
-  "version": "1.0.1",
+  "version": "1.0.0",
   "type": "external",
   "github_repository": "https://github.com/ecomclub/app-mailjet",
   "authentication": true,
-  "auth_callback_uri": "https://mailjet.ecomplus.biz/callback",
+  "auth_callback_uri": "https://mailjet.ecomplus.biz/ecom/auth-callback",
   "auth_scope": {
-    "customers": [
-      "GET",
-      "POST"
-    ],
-    "orders": [
-      "GET",
-      "POST"
-    ],
-    "procedures": [
-      "GET",
-      "POST",
-      "PUT",
-      "PATCH",
-      "DELETE"
-    ]
+    "stores": ["GET"],
+    "stores/me": ["GET"],
+    "orders": ["GET"],
+    "customers": ["GET"],
+    "carts": ["GET"],
+    "procedures": ["POST", "GET", "PUT", "PATCH", "DELETE"],
+    "orders/payments_history": ["GET", "POST", "PATCH"],
+    "orders/fulfillments": ["GET", "POST", "PATCH"],
+    "orders/hidden_metafields": ["POST"]
   },
-  "data": {
+  "admin_settings": {
     "maillist": {
-      "default": 1234
-    },
-    "is_abandoned": 2
-  },
-  "hidden_data": {
-    "mailjet_key": "ZRsLkJs5XWOz9odJsUecaHEYWEj0Tdln1KuZV0kbuo9fDV",
-    "mailjet_secret": "IcpezUIwlarsr75zaaQdovM4ZT0kw8W5jM6hl5x97zR9Y",
-    "mailjet_from": {
-      "name": "Talisson",
-      "email": "talissonf@gmail.com"
-    },
-    "mailjet_templates": [
-      {
-        "trigger": "order_confirmation",
-        "id": 588725
-      },
-      {
-        "trigger": "payment_confirmation",
-        "id": 588725
-      },
-      {
-        "trigger": "shipping_confirmation",
-        "id": 588725
-      },
-      {
-        "trigger": "delivery_confirmation",
-        "id": 588725
-      },
-      {
-        "trigger": "order_invoice",
-        "id": 588725
-      },
-      {
-        "trigger": "cancellation_confirmation",
-        "id": 588725
-      },
-      {
-        "trigger": "refund_confirmation",
-        "id": 588725
-      },
-      {
-        "trigger": "new_user",
-        "id": 588725
-      },
-      {
-        "trigger": "adandoned_cart",
-        "id": 588725
+      "hide": false,
+      "schema": {
+        "type": "interge",
+        "title": "Mailjet Lista",
+        "description": "Lista de e-mail padrão onde serão incluído os contatos no mailjet"
       }
-    ]
-  },
-  "state": "active",
-  "status": "active",
-  "store_id": 1011,
-  "created_at": "2019-01-10T18:26:57.036Z"
+    },
+    "is_abandoned_after_days": {
+      "hide": false,
+      "schema": {
+        "type": "interge",
+        "title": "Carrinho Abandonado",
+        "description": "Após quantos dias avisar ao comprador sobre o carrinho abandonado"
+      }
+    },
+    "mailjet_key": {
+      "hide": true,
+      "schema": {
+        "type": "string",
+        "title": "Mailjet key",
+        "description": "API key da Conta"
+      }
+    },
+    "mailjet_secret": {
+      "hide": true,
+      "schema": {
+        "type": "string",
+        "title": "Mailjet secret",
+        "description": "Secret Key da conta"
+      }
+    },
+    "mailjet_from": {
+      "hide": true,
+      "schema": {
+        "type": "object",
+        "title": "Dados de disparo dos emails",
+        "description": "Use o campo nome com o nome da sua loja e o e-mail de contato da loja para ser exibido nos e-mails disparados",
+        "required": ["name", "email"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Nome da Loja",
+            "description": "Será exibido no remetente dos e-mails"
+          },
+          "email": {
+            "type": "string",
+            "title": "E-mail da loja",
+            "description": "Será exibido como @reply-to"
+          }
+        }
+      }
+    },
+    "mailjet_templantes": {
+      "hide": true,
+      "schema": {
+        "type": "array",
+        "title": "Templantes dos e-mails",
+        "description": "Selecione quais trigger que terão e-mails enviados",
+        "uniqueItems": true,
+        "items": {
+          "type": "object",
+          "required": ["trigger", "id"],
+          "properties": {
+            "trigger": {
+              "type": "string",
+              "enum": [
+                "new_order",
+                "pending",
+                "under_analysis",
+                "authorized",
+                "unauthorized",
+                "paid",
+                "in_dispute",
+                "refunded",
+                "voided",
+                "invoice_issued",
+                "in_production",
+                "in_separation",
+                "ready_for_shipping",
+                "shipped",
+                "delivered",
+                "returned_for_exchange",
+                "received_for_exchange",
+                "returned"
+              ],
+              "title": "Gatilhos",
+              "description": "Gatilho de e-mail"
+            },
+            "id": {
+              "type": "interge",
+              "title": "ID do Template",
+              "description": "Id do templante do mailjet para o trigger escolhido."
+            }
+          }
+        }
+      }
+    }
+  }
 }
