@@ -23,7 +23,7 @@
     "maillist": {
       "hide": false,
       "schema": {
-        "type": "interge",
+        "type": "integer",
         "title": "Mailjet Lista",
         "description": "Lista de e-mail padrão onde serão incluído os contatos no mailjet"
       }
@@ -31,7 +31,7 @@
     "is_abandoned_after_days": {
       "hide": false,
       "schema": {
-        "type": "interge",
+        "type": "integer",
         "title": "Carrinho Abandonado",
         "description": "Após quantos dias avisar ao comprador sobre o carrinho abandonado"
       }
@@ -73,7 +73,7 @@
         }
       }
     },
-    "mailjet_templantes": {
+    "mailjet_templates": {
       "hide": true,
       "schema": {
         "type": "array",
@@ -110,7 +110,7 @@
               "description": "Gatilho de e-mail"
             },
             "id": {
-              "type": "interge",
+              "type": "integer",
               "title": "ID do Template",
               "description": "Id do templante do mailjet para o trigger escolhido."
             }
