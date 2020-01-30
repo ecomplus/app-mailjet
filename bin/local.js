@@ -26,8 +26,8 @@ ecomAuth.then(appSdk => {
       })
     }
   }
+  require('./../lib/abandoned-carts')({ appSdk })
 })
-
 ecomAuth.catch(err => {
   logger.error(err)
   setTimeout(() => {
