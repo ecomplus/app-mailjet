@@ -87,6 +87,7 @@
             "trigger": {
               "type": "string",
               "enum": [
+                "abandoned_cart",
                 "new_order",
                 "pending",
                 "under_analysis",
