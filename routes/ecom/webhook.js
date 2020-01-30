@@ -14,21 +14,24 @@ module.exports = appSdk => {
     /*
     Treat E-Com Plus trigger body here
     // https://developers.e-com.plus/docs/api/#/store/triggers/
-    const trigger = req.body
     */
-
+    const trigger = req.body
     // get app configured options
     getConfig({ appSdk, storeId }, true)
 
       .then(configObj => {
         /* Do the stuff */
-        require('./../../lib/notifications')(appSdk, configObj, storeId)(req.body)
-        // example only
-        if (configObj.ignore_trigger_x) {
-          // ignore current trigger
-          let err = new Error()
-          err.name = SKIP_TRIGGER_NAME
-          throw err
+        let { resource } = trigger
+        switch (resource) {
+          case 'carts': // abandoned cart
+            require('./../../lib/register-carts')({ appSdk })(trigger)
+            break
+          // case 'products':
+          case 'orders':
+          case 'customers':
+            require('./../../lib/notifications')(appSdk, configObj, storeId)(trigger)
+            break
+          default: break
         }
         // all done
         res.send(ECHO_SUCCESS)
