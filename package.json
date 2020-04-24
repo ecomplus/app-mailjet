@@ -1,5 +1,5 @@
 {
-  "name": "mailjet-external",
+  "name": "mailjet",
   "version": "1.0.0",
   "description": "E-Com Plus app to integrate [Mailjet](https://www.mailjet.com/) for transactional emails",
   "main": "index.js",
@@ -7,8 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "ECOM_AUTH_DB=/var/dbs/mailjet.sqlite LOGGER_OUTPUT=/var/log/nodejs/ses.out LOGGER_ERRORS=/var/log/nodejs/ses.error nodemon main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "APP_NAME=Mailjet-dev APP_BASE_URI=https://talisson.pagekite.me ECOM_AUTH_DB=/var/dbs/mailjet.sqlite LOGGER_OUTPUT=/var/log/nodejs/ses.out LOGGER_ERRORS=/var/log/nodejs/ses.error nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish:market": "node ./scripts/market-publication.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "moment": "^2.24.0",
     "node-mailjet": "^3.3.1",
     "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

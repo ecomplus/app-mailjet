@@ -13,4 +13,4 @@ Envie e-mails transacionais de forma automática sem preocupações.
 ### Suporte
 [Suporte](https://github.com/ecomclub/app-mailjet/issues)
 
-**Aplicativo desenvolvido e mantindo pela [e-com.plus](https://e-com.plus), tire suas dúvidas ou reporte algum problema em nossa [comunidade](https://community.e-com.plus/).**
+**Aplicativo desenvolvido e mantido pela [e-com.plus](https://e-com.plus), tire suas dúvidas ou reporte algum problema em nossa [comunidade](https://community.e-com.plus/).**
