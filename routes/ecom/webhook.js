@@ -1,5 +1,5 @@
 'use strict'
-
+const logger = require('console-files')
 // read configured E-Com Plus app data
 const getConfig = require(process.cwd() + '/lib/store-api/get-config')
 
@@ -15,6 +15,7 @@ module.exports = appSdk => {
     Treat E-Com Plus trigger body here
     // https://developers.e-com.plus/docs/api/#/store/triggers/
     */
+    logger.log(JSON.stringify(req.body))
     const trigger = req.body
     // get app configured options
     getConfig({ appSdk, storeId }, true)
