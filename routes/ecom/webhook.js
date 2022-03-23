@@ -15,7 +15,6 @@ module.exports = appSdk => {
     Treat E-Com Plus trigger body here
     // https://developers.e-com.plus/docs/api/#/store/triggers/
     */
-    logger.log(JSON.stringify(req.body))
     const trigger = req.body
     // get app configured options
     getConfig({ appSdk, storeId }, true)
@@ -30,7 +29,7 @@ module.exports = appSdk => {
           // case 'products':
           case 'orders':
           case 'customers':
-            require('./../../lib/notifications')(appSdk, configObj, storeId)(trigger)
+            require('./../../lib/mail-sender')(appSdk, configObj, storeId, trigger)
             break
           default: break
         }

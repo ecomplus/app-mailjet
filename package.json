@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "APP_NAME=Mailjet-dev APP_BASE_URI=https://talisson.ngrok.io ECOM_AUTH_DB=/var/dbs/mailjet.sqlite LOGGER_OUTPUT=/var/log/nodejs/ses.out LOGGER_ERRORS=/var/log/nodejs/ses.error nodemon main.js",
+    "dev": "PORT=3001 APP_NAME=Mailjet-dev APP_BASE_URI=http://talisson.ngrok.io ECOM_AUTH_DB=/var/dbs/mailjet.sqlite LOGGER_OUTPUT=/var/log/nodejs/mailjet.out LOGGER_ERRORS=/var/log/nodejs/mailjet.error DAEMON_SERVICES=true MAILJET_KEY=eb05fecc0f6a95bc3ad493480d5f162a MAILJET_SECRET=9c73c789d62fd6c49126db35e529329e nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish:market": "node ./scripts/market-publication.js"
   },
@@ -22,14 +22,15 @@
   },
   "homepage": "https://github.com/ecomclub/app-mailjet#readme",
   "dependencies": {
-    "axios": "^0.19.1",
+    "@types/node-mailjet": "^3.3.7",
+    "axios": "^0.26.1",
     "console-files": "^2.2.0",
     "ecomplus-app-sdk": "^1.10.0",
     "express": "^4.16.4",
     "json-schema-fill": "^1.0.3",
     "moment": "^2.24.0",
-    "node-mailjet": "^3.3.1",
-    "sqlite3": "^4.0.6"
+    "node-mailjet": "^3.3.4",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
