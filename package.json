@@ -1,6 +1,6 @@
 {
   "name": "mailjet",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "E-Com Plus app to integrate [Mailjet](https://www.mailjet.com/) for transactional emails",
   "main": "index.js",
   "directories": {
@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "PORT=3001 APP_NAME=Mailjet-dev APP_BASE_URI=http://talisson.ngrok.io ECOM_AUTH_DB=/var/dbs/mailjet.sqlite LOGGER_OUTPUT=/var/log/nodejs/mailjet.out LOGGER_ERRORS=/var/log/nodejs/mailjet.error DAEMON_SERVICES=true MAILJET_KEY=eb05fecc0f6a95bc3ad493480d5f162a MAILJET_SECRET=9c73c789d62fd6c49126db35e529329e nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish:market": "node ./scripts/market-publication.js"
+    "publish:market": "node ./scripts/market-publication.js",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
